@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='index.css') }}">
+    <title>TUBES 2 KELOMPOK 15 ALGE-DEAD</title>
+</head>
+<body>
+    <div id="full-page">
+        <div id="header">
+            Image Compression Kelompok ALGE-DEAD
+        </div>
+
+        <div id="content">
+            <p id="input-your-image">
+                Search and Input your Image
+            </p>
+
+            <div id="user-input">
+            	<form action='/' method='POST' id='submitimg' enctype=multipart/form-data>
+	                <div id="input-picture">
+	                        <input type="file" name="picturetobeinputted" id="choose-file">
+	                </div>
+	                <input type="submit">
+	                <div id="compression-rate">
+                        Image Compression Rate: 
+                        <input type="text" name="ratetobeinputted" id="" placeholder = "0">
+                        %
+                        <br>
+                        Note: 0 tidak terkompres sama sekali, 100 terkompres maksimal
+                	</div>
+	            </form>
+                 
+            </div>
+
+            <div id="before-after-picture">
+                <div id="before-picture">
+                    Before
+                    <br>
+                    <img src= {{ before }} alt="">
+                </div>
+                <div id="after-picture">
+                    After
+                    <br>
+                    <img src= {{ after }} alt="">
+                </div>
+            </div>
+
+            <div id="footer">
+                <div id="effect-detail">
+                    <div id="percentage">
+                        Image pixel difference percentage: {{ pix }} {{ pers }}
+                        <p id="percentage-number"></p>
+                    </div>
+                    <div id="compression">
+                        Image compression time: 
+                        <p id="compression-time">{{ time }} {{ sec }}</p>
+                    </div>
+                </div>
+
+                <div id="download-button">
+                    <a href = {{ after }} download>
+                        <button>Download</button>
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>
